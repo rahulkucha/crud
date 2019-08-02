@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<!-- saved from url=(0075)http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html -->
+<!-- saved from url=(0074)http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <meta name="description" content="">
 <meta name="keywords" content="">
 
-<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="shortcut icon" href="http://wireframes.php-dev.in/training/v1.2/php/assignment/favicon.ico">
 <title>Vital Partners Leading Dating and Introduction Agency in Sydney &amp; Canberra</title>
-<link href="/images/default.css" rel="stylesheet" type="text/css" media="all">
-<link href="/images/stylesheet.css" rel="stylesheet" type="text/css" media="all">
+<link href="./product_files/default.css" rel="stylesheet" type="text/css" media="all">
+<link href="./product_files/stylesheet.css" rel="stylesheet" type="text/css" media="all">
 <!--<link href="css/small-resolution.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/medium-resolution.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/high-resolution.css" rel="stylesheet" type="text/css" media="all">-->
 
 <!-- jQuery library (served from Google) -->
-<script src="/images/jquery.min.js"></script>
+<script src="./product_files/jquery.min.js"></script>
 <!-- bxSlider Javascript file -->
-<script src="/images/jquery.bxslider.min.js"></script>
-<script src="/images/script.js" type="text/javascript"></script>
+<script src="./product_files/jquery.bxslider.min.js"></script>
+<script src="./product_files/script.js" type="text/javascript"></script>
 
 <!-- bxSlider CSS file -->
-<link href="/images/jquery.bxslider.css" rel="stylesheet">
+<link href="./product_files/jquery.bxslider.css" rel="stylesheet">
 <!-- Responsive -->
-<link href="/images/responsive.css" rel="stylesheet">
+<link href="./product_files/responsive.css" rel="stylesheet">
 
 
 
@@ -39,7 +39,7 @@
 
 		<div class="Logo_Cont left"><!--Logo_Cont Start-->
                     	
-           <a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/index.html"><img src="/images/logo.png" alt=""></a>
+		   <a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/index.html"><img src="./product_files/logo.png" alt=""></a>
         
         </div><!--Logo_Cont End-->
 		
@@ -48,7 +48,7 @@
             <div class="Home_Cont_Right_Top left"><!--Home_Cont_Right_Top Start-->
                  
 				 <div class="Top_Search1 left">Call Us Today! (02) 9017 8413</div>
-				 <div class="Top_Search2 right"><input id="tags1" name="" type="text" onclick="this.value" onblur="validate_field('phone')" value="Type desired Job Location"></div>
+				 <div class="Top_Search2 right"><input id="tags1" name="" type="text" onclick="this.value=&#39;&#39;;" onblur="validate_field(&#39;phone&#39;);" value="Type desired Job Location"></div>
            
         	</div><!--Home_Cont_Right_Top End-->
 
@@ -56,12 +56,12 @@
 				<div class="toggle_menu"><a href="javascript:void(0)">Menu</a></div>
                  <div id="topMenu">
                  	<ul>
-                 		<li><a href="/images/index.html">Home</a></li>
-                 		<li><a href="/images/blog_index.html">Dating Blog</a></li>
-                 		<li><a href="/images/who_we_help.html">Who We Help</a></li>
-                 		<li><a href="/images/why_vital.html">Why Vital</a></li>
-                 		<li><a href="/images/reviews.html">Reviews</a></li>
-                 		<li><a href="/images/contact_us.html">Contact Us</a></li>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/index.html">Home</a></li>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/blog_index.html">Dating Blog</a></li>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/who_we_help.html">Who We Help</a></li>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/why_vital.html">Why Vital</a></li>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/reviews.html">Reviews</a></li>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/contact_us.html">Contact Us</a></li>
                  	</ul>
                  </div>
            
@@ -81,7 +81,6 @@
   </div>
 
   <!-- Content Section Start-->
-  <form action="" method="POST">
   <div class="section content_section">
 	<div class="container">
 		<div class="filable_form_container">
@@ -89,41 +88,41 @@
 				<ul>
 					<li class="fileds">
 						<div class="name_fileds">
-							<table>
-								<tr>
-									<th>id</th>
-									<th>category</th>
-									<th>Edit</th>
-									<th>Delete</th>
-								</tr>
-								<% result.forEach(data => { %>
-									<tr>
-										<td><b><%= data.id %></b></td>
-										<td><b><%= data.name %></b></td>
-										<td><a href="/edit/<%= data.id %>">Edit</a></td>
-										<td><a href=<%= data.id %>>Delete</a></td>
-									</tr>
-								<% }) %>
-                            </table>
-							<h4>Add Product Category</h4>
-							<input name="firstname" type="text" style="display: inline-block;"> 
-							<button style="display: inline-block;height: 35px;width: 49px;" type="submit">Add</button>
-							<% if(typeof errorz != 'undefined'){ %>
-								<%= errorz %>
-							<% } %>
+							<label>Product Name</label>
+							<input name="firstname" type="text"> 
+						</div>
+					</li>
+					<li class="fileds">
+						<div class="name_fileds">
+							<label>Product Price</label>
+							<input name="price" type="text"> 
+						</div>
+					</li>
+					<li class="fileds">
+						<div class="upload_fileds">
+							<label>Upload Image</label>
+							<input id="uploadFile" type="file" placeholder="Choose File" class="mandatory_fildes">
+						</div>						
+					</li>
+					<li class="fileds">
+						<div class="name_fileds">
+							<label>Select Category</label>
+							<select name="category" class="select category" style="z-index: 10; opacity: 0;">
+								<option value="mobile">Mobile</option>
+								<option value="automobile">Automobile</option>
+							</select><span class="select">Automobile</span> 
 						</div>
 					</li>
 				</ul>
 				<div class="next_btn_block">
 					<div class="next_btn">
-						<a href="#">Submit  <span><img src="/images/small_triangle.png" alt="small_triangle"> </span></a>
+						<a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">Submit  <span><img src="./product_files/small_triangle.png" alt="small_triangle"> </span></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>		
   </div>
-  </form>
   <!-- Content Section End-->
 
 
@@ -134,7 +133,7 @@
 	<div class="container"><!--container Start-->
 		
 		<div class="Download_Cont_Top_Left left"><!--Download_Cont_Top Start-->
-			<img src="/images/icon5.png" alt=""> <h1 style="display:inline;">FREE: Men Are From Mars</h1> <a href="/images/add_category.html#">Download Now</a>
+			<img src="./product_files/icon5.png" alt=""> <h1 style="display:inline;">FREE: Men Are From Mars</h1> <a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">Download Now</a>
 
 		</div><!--Download_Cont_Top End-->	
 		
@@ -152,7 +151,7 @@
 		
 		<div class="Footer_Cont_Top clearfix"><!--Footer_Cont_Top Start-->
 
-			<span class="left"><img src="/images/foot_logo.png" alt=""></span>
+			<span class="left"><img src="./product_files/foot_logo.png" alt=""></span>
 			<p class="right">Shortcut your search to happiness right now. 
 Live a life without regrets and take action today!</p>
 		</div><!--Footer_Cont_Top End-->
@@ -160,8 +159,8 @@ Live a life without regrets and take action today!</p>
 		<div class="Footer_Cont_Top2 clearfix"><!--Footer_Cont_Top2 Start-->
 
 			<h1>Call Us Today! (02) 9017 8413</h1>
-			 <a href="/images/add_category.html#">Book an Appointment <img src="/images/icon7.png" alt=""></a>
- 			 <a href="/images/add_category.html#">Contact a Consultant <img src="/images/icon6.png" alt=""></a>
+			 <a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">Book an Appointment <img src="./product_files/icon7.png" alt=""></a>
+ 			 <a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">Contact a Consultant <img src="./product_files/icon6.png" alt=""></a>
 		</div><!--Footer_Cont_Top2 End-->
 		
 		<div class="Footer_Cont_Top3 clearfix"><!--Footer_Cont_Top3 Start-->
@@ -193,11 +192,11 @@ Live a life without regrets and take action today!</p>
 
 				<div class="Foot_Link3"><!--Foot_Link3 Start-->
 					<ul>
-						<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#">How to Recover After a Bad Date</a></li>
-                        <li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#">Review | Vital Partners Review</a></li>
-                        <li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#">Review | Vital Partners Review</a></li>
-                        <li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#">Review | Vital Partners Derek and Julie</a></li>
-                        <li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#">7 Rules for a Happy Relationship | Vital Partners Dating Sydney</a></li>
+						<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">How to Recover After a Bad Date</a></li>
+                        <li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">Review | Vital Partners Review</a></li>
+                        <li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">Review | Vital Partners Review</a></li>
+                        <li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">Review | Vital Partners Derek and Julie</a></li>
+                        <li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">7 Rules for a Happy Relationship | Vital Partners Dating Sydney</a></li>
 					</ul>
 				</div><!--Foot_Link3 End-->
 
@@ -210,12 +209,12 @@ Live a life without regrets and take action today!</p>
 					<ul>
 						<li class="left">
 							<p>Are you being vulnerable to find love? via offline dating agency Sydney Canberra Vital Partners </p> 
-			             <div class="Page_Link left"><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#">http://t.co/hGCgHEU6If</a></div>
+			             <div class="Page_Link left"><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">http://t.co/hGCgHEU6If</a></div>
 						 <div class="Page_Link right"> 1 week ago</div>
 					    </li>
                       <li class="left">
 							<p>Are you being vulnerable to find love? via offline dating agency Sydney Canberra Vital Partners </p> 
-			             <div class="Page_Link left"><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#">http://t.co/hGCgHEU6If</a></div>
+			             <div class="Page_Link left"><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">http://t.co/hGCgHEU6If</a></div>
 						 <div class="Page_Link right"> 2 week ago</div>
 					    </li>
 					</ul>
@@ -245,11 +244,11 @@ Live a life without regrets and take action today!</p>
 				<span>FOLLOW US:</span>
 
 				<ul class="social_media">
-					<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#" class="fb">facebook</a></li>
-					<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#" class="twitter">Twitter</a></li>
-					<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#" class="linkedin">LinkedIn</a></li>
-					<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#" class="you_tube">You Tube</a></li>
-					<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#" class="gplus">googl plus</a></li>
+					<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#" class="fb">facebook</a></li>
+					<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#" class="twitter">Twitter</a></li>
+					<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#" class="linkedin">LinkedIn</a></li>
+					<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#" class="you_tube">You Tube</a></li>
+					<li><a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#" class="gplus">googl plus</a></li>
 				</ul>
 
 
@@ -268,7 +267,7 @@ Live a life without regrets and take action today!</p>
             
         <div class="container"><!--container Start-->
 			<div class="Foot_Link8 "><!--Foot_Link8 Start-->
-			<a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#">Who Designed This Site?</a> <a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_category.html#">Who  Built This Site?</a>
+			<a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">Who Designed This Site?</a> <a href="http://wireframes.php-dev.in/training/v1.2/php/assignment/add_product.html#">Who  Built This Site?</a>
 			</div><!--Foot_Link8 End-->
 		</div><!--container End-->
     
@@ -291,7 +290,7 @@ Live a life without regrets and take action today!</p>
 
 <!--wrapper-starts-->
 
-<script type="text/javascript" src="/images/jquery.js"></script>	
+<script type="text/javascript" src="./product_files/jquery.js"></script>	
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.select').each(function(){

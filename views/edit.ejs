@@ -81,7 +81,7 @@
   </div>
 
   <!-- Content Section Start-->
-  <form action="" method="POST">
+  <form action="/edit/<%= result[0].id %>" method="POST">
   <div class="section content_section">
 	<div class="container">
 		<div class="filable_form_container">
@@ -89,28 +89,9 @@
 				<ul>
 					<li class="fileds">
 						<div class="name_fileds">
-							<table>
-								<tr>
-									<th>id</th>
-									<th>category</th>
-									<th>Edit</th>
-									<th>Delete</th>
-								</tr>
-								<% result.forEach(data => { %>
-									<tr>
-										<td><b><%= data.id %></b></td>
-										<td><b><%= data.name %></b></td>
-										<td><a href="/edit/<%= data.id %>">Edit</a></td>
-										<td><a href=<%= data.id %>>Delete</a></td>
-									</tr>
-								<% }) %>
-                            </table>
-							<h4>Add Product Category</h4>
-							<input name="firstname" type="text" style="display: inline-block;"> 
-							<button style="display: inline-block;height: 35px;width: 49px;" type="submit">Add</button>
-							<% if(typeof errorz != 'undefined'){ %>
-								<%= errorz %>
-							<% } %>
+							<h4>Update Category</h4>
+							<input name="firstname" value="<%= result[0].name %>" type="text" style="display: inline-block;">
+							<button style="display: inline-block;height: 35px;width: 49px;" type="submit">Save</button>
 						</div>
 					</li>
 				</ul>
