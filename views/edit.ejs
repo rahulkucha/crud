@@ -24,7 +24,34 @@
 <!-- Responsive -->
 <link href="/images/responsive.css" rel="stylesheet">
 
-
+<style>
+		span {
+			color: red;
+		}
+		</style>
+		<script>
+				function val()
+				{
+					var names = document.getElementById('firstname').value;
+					var alpha = /^[a-zA-Z]+$/;
+					if(names=="") 
+					{
+						document.getElementById('names').innerHTML="Name must be filled out";
+						return false;
+					}
+					else if(!names.match(alpha))
+					{
+						document.getElementById('names').innerHTML="Name must have alphabets only";
+						return false;
+					}
+					else
+					{
+						document.getElementById('names').innerHTML=" ";
+						//return true;
+					}
+					document.getElementById("hello1").submit();
+				}
+		</script>
 
 </head>
 
@@ -81,7 +108,7 @@
   </div>
 
   <!-- Content Section Start-->
-  <form action="/edit/<%= result[0].id %>" method="POST">
+  <form id="hello1" action="/edit/<%= result[0].id %>" method="POST">
   <div class="section content_section">
 	<div class="container">
 		<div class="filable_form_container">
@@ -90,15 +117,16 @@
 					<li class="fileds">
 						<div class="name_fileds">
 							<h4>Update Category</h4>
-							<input name="firstname" value="<%= result[0].name %>" type="text" style="display: inline-block;">
+							<input name="firstname" id="firstname" value="<%= result[0].name %>" type="text" style="display: inline-block;">
 							<button style="display: inline-block;height: 35px;width: 49px;" type="submit">Save</button>
+							<span id="names"></span>
+							<% if(typeof error1 != 'undefined'){ %>
+								<%= error1 %>
+							<% } %>
 						</div>
 					</li>
 				</ul>
 				<div class="next_btn_block">
-					<div class="next_btn">
-						<a href="#">Submit  <span><img src="/images/small_triangle.png" alt="small_triangle"> </span></a>
-					</div>
 				</div>
 			</div>
 		</div>

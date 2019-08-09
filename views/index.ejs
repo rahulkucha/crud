@@ -24,8 +24,34 @@
 <!-- Responsive -->
 <link href="/images/responsive.css" rel="stylesheet">
 
-
-
+<style>
+span {
+	color: red;
+}
+</style>
+<script>
+		function val()
+		{
+			var name = document.getElementById('firstname').value;
+			var alpha = /^[a-zA-Z]+$/;
+			if(name=="") 
+			{
+				document.getElementById('fname').innerHTML="Name must be filled out";
+				return false;
+			}
+			else if(!name.match(alpha))
+			{
+				document.getElementById('fname').innerHTML="Name must have alphabets only";
+				return false;
+			}
+			else
+			{
+				document.getElementById('fname').innerHTML=" ";
+				//return true;
+			}
+			document.getElementById("hello").submit();
+		}
+</script>
 </head>
 
 <body>
@@ -81,7 +107,7 @@
   </div>
 
   <!-- Content Section Start-->
-  <form action="" method="POST">
+  <form id="hello" action="/cats" method="POST">
   <div class="section content_section">
 	<div class="container">
 		<div class="filable_form_container">
@@ -91,23 +117,30 @@
 						<div class="name_fileds">
 							<table>
 								<tr>
+									<th>Check</th>
 									<th>id</th>
 									<th>category</th>
 									<th>Edit</th>
 									<th>Delete</th>
 								</tr>
+								<% var count = 0 %>
 								<% result.forEach(data => { %>
 									<tr>
-										<td><b><%= data.id %></b></td>
+										<% count=count+1 %>
+										<td><input type="checkbox" name="check[]" value="<%= data.id %>"></td>
+										<td><b><%- count %></b></td>
 										<td><b><%= data.name %></b></td>
 										<td><a href="/edit/<%= data.id %>">Edit</a></td>
-										<td><a href=<%= data.id %>>Delete</a></td>
+										<td><a href="/delete/<%= data.id %>">Delete</a></td>
 									</tr>
 								<% }) %>
-                            </table>
-							<h4>Add Product Category</h4>
-							<input name="firstname" type="text" style="display: inline-block;"> 
+							</table>
+							<button type="submit" formaction="/del">Delete All</button>
+							<hr>
+							<h4>Add Product Category<span> *</span></h4>
+							<input name="firstname" id="firstname" type="text" style="display: inline-block;"> 
 							<button style="display: inline-block;height: 35px;width: 49px;" type="submit">Add</button>
+							<span id="fname"></span>
 							<% if(typeof errorz != 'undefined'){ %>
 								<%= errorz %>
 							<% } %>
@@ -116,7 +149,7 @@
 				</ul>
 				<div class="next_btn_block">
 					<div class="next_btn">
-						<a href="#">Submit  <span><img src="/images/small_triangle.png" alt="small_triangle"> </span></a>
+						<a href="/">Home</a>
 					</div>
 				</div>
 			</div>
