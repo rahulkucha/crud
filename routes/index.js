@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 
-
-
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -25,7 +23,7 @@ router.get('/', function(req, res) {
 
 router.get('/cat', function(req, res) {
   con.query("SELECT * FROM category", function (err, result, fields) {
-    res.render('index', { title: 'Express', result: result });
+    res.render('index', { title: 'Express', result: result, test_er: '' });
   });
 });
 
@@ -36,13 +34,13 @@ router.post('/cats',function(req,res)
   if(req.body.firstname == ""){
     con.query("SELECT * FROM category", function (err, result, fields) {
       console.log(result);
-      res.render('index', {result: result , title: 'message', errorz: 'Category name cannot be empty' });
+      res.render('index', {result: result , title: 'message',test_er: '', errorz: 'Category name cannot be empty' });
     });
   }
   else if(!req.body.firstname.match(alpha))
   {
     con.query("SELECT * FROM category", function(err, result, fields){
-      res.render('index', { title: 'Express', result: result, errorz: 'Category name must have alphabets only' });
+      res.render('index', { title: 'Express', result: result,test_er: req.body.firstname, errorz: 'Category name must have alphabets only' });
       });
   }
   else
@@ -81,7 +79,7 @@ router.get('/edit/:id',function(req,res)
 {
   //console.log(req.params.id);
   con.query("SELECT * FROM category WHERE id = ?",[req.params.id],function(err, result, fields){
-   res.render('edit', { title: 'Express', result: result });
+   res.render('edit', { title: 'Express', result: result, test1: '' });
    //console.log(result);
   });
 });
@@ -89,16 +87,16 @@ router.get('/edit/:id',function(req,res)
 router.post('/edit/:id',function(req,res)
 {
   var alpha = /^[a-zA-Z]+$/;
-  if(req.body.firstname=="")
+  if(req.body.firstname==" ")
   {
     con.query("SELECT * FROM category WHERE id = ?",[req.params.id],function(err, result, fields){
-    res.render('edit', { title: 'Express', result: result, error1: 'Category name cannot be empty' });
+    res.render('edit', { title: 'Express', result: result,test1: ' ', error1: 'Category name cannot be empty' });
     });
   }
   else if(!req.body.firstname.match(alpha))
   {
     con.query("SELECT * FROM category WHERE id = ?",[req.params.id],function(err, result, fields){
-      res.render('edit', { title: 'Express', result: result, error1: 'Category name must have alphabets only' });
+      res.render('edit', { title: 'Express', result: result, test1: req.body.firstname, error1: 'Category name must have alphabets only' });
       });
   }
   else

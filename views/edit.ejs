@@ -117,12 +117,13 @@
 					<li class="fileds">
 						<div class="name_fileds">
 							<h4>Update Category</h4>
-							<input name="firstname" id="firstname" value="<%= result[0].name %>" type="text" style="display: inline-block;">
+							<input name="firstname" id="firstname" value="<%= test1 ? test1 : result[0].name %>" type="text" style="display: inline-block;">
 							<button style="display: inline-block;height: 35px;width: 49px;" type="submit">Save</button>
 							<span id="names"></span>
 							<% if(typeof error1 != 'undefined'){ %>
-								<%= error1 %>
+								<span>	<%= error1 %></span>
 							<% } %>
+							
 						</div>
 					</li>
 				</ul>

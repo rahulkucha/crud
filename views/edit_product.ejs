@@ -24,7 +24,60 @@
 <!-- Responsive -->
 <link href="/edit_product_files/responsive.css" rel="stylesheet">
 
+<style>
+	span {
+		color: red;
+	}
+</style>
 
+	<script>
+			function formval()
+			{
+				var names = document.getElementById('firstname').value;
+				var alpha = /^[a-zA-Z]+$/;
+				if(names=="") 
+				{
+					document.getElementById('fname').innerHTML="Name must be filled out";
+					return false;
+				}
+				else if(!names.match(alpha))
+				{
+					document.getElementById('fname').innerHTML="Name must have alphabets only";
+					return false;
+				}
+				else
+				{
+					document.getElementById('fname').innerHTML=" ";
+					//return true;
+				}
+	
+				var prices = document.getElementById('price').value;
+				var num = /^[0-9]+$/;
+				if(prices=="") 
+				{
+					document.getElementById('fprice').innerHTML="Price must be filled out";
+					return false;
+				}
+				else if(!prices.match(num))
+				{
+					document.getElementById('fprice').innerHTML="Price must be numeric only";
+					return false;
+				}
+				else
+				{
+					document.getElementById('fprice').innerHTML=" ";
+					//return true;
+				}
+	
+				var cats = document.getElementById('cat').value;
+				if(cats == 0)
+				{
+					document.getElementById('cates').innerHTML="Category must be selected";
+					return false;
+				}
+				document.getElementById("hi").submit();
+			}
+	</script>
 
 </head>
 
@@ -91,14 +144,17 @@
 					<li class="fileds">
 						<div class="name_fileds">
 							<label>Product Name</label>
-							<input name="firstname" type="text" value="<%= success.product_name ? success.product_name : (data.name ? data.name : '') %>"> 
-							<%= error.product_name ? error.product_name : '' %>
+							<input name="firstname" type="text" value="<%= error.product_name_value ? error.product_name_value : (success.product_name ? success.product_name : (data.name ? data.name : ' ')) %>"> 
+							<span id="fname"></span>
+							<span><%= error.product_name ? error.product_name : '' %></span>
 						</div>
 					</li>
 					<li class="fileds">
 						<div class="name_fileds">
 							<label>Product Price</label>
-							<input name="price" type="text" value="<%= data.price %>">
+							<input name="price" type="text" value="<%= error.product_price_value ? error.product_price_value : (success.product_price ? success.product_price : (data.price ? data.price : ' ')) %>">
+							<span id="fprice"></span> 
+							<span><%= error.product_price ? error.product_price : '' %></span>
 						</div>
 					</li>
 					<li class="fileds">
@@ -115,6 +171,8 @@
 								<option value="mobile" <%if (data.category =='mobile') { %>selected <% } %>>Mobile</option>
 								<option value="automobile" <%if (data.category =='automobile') { %>selected <% } %>>Automobile</option>
 							</select>
+							<span id="cates"></span>
+							<span><%= error.product_category ? error.product_category : '' %></span>
 						</div>
 					</li>
 				</ul>

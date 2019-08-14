@@ -140,36 +140,38 @@ span {
 				<ul>
 					<li class="fileds">
 						<div class="name_fileds">
-							<label>Product Name <span>*</span></label>
-							<input name="firstname" value="<%= success.product_name ? success.product_name : '' %>" id="firstname" type="text"> 
+							<label>Product Name <span style="color: red;">*</span></label>
+							<input name="firstname" value="<%= error.product_name_value ? error.product_name_value : success.product_name %>" id="firstname" type="text"> 
 							<span id="fname"></span>
-							<%= error.product_name ? error.product_name : '' %>
+							<span><%= error.product_name ? error.product_name : '' %></span>
 						</div>
 					</li>
 					<li class="fileds">
 						<div class="name_fileds">
-							<label>Product Price <span>*</span></label>
-							<input name="price" value="<%= success.product_price ? success.product_price : '' %>" id="price" type="text">
+							<label>Product Price <span style="color: red;">*</span></label>
+							<input name="price" value="<%= error.product_price_value ? error.product_price_value : success.product_price %>" id="price" type="text">
 							<span id="fprice"></span> 
-							<%= error.product_price ? error.product_price : '' %>
+							<span><%= error.product_price ? error.product_price : '' %></span>
 						</div>
 					</li>
 					<li class="fileds">
 						<div class="upload_fileds">
 							<label>Upload Image</label>
 							<input name="img" id="uploadFile" type="file" placeholder="Choose File" class="mandatory_fildes">
+							<br>
+							<span><%= error.product_image ? error.product_image : '' %></span>
 						</div>						
 					</li>
 					<li class="fileds">
 						<div class="name_fileds">
-							<label>Select Category <span>*</span></label>
+							<label>Select Category <span style="color: red;">*</span></label>
 							<select id="cat" name="category" class="select category" style="z-index: 10; opacity: 0;">
 								<option value="0" <%if (success.product_category == '0') { %>selected <% } %> >Select</option>
 								<option value="mobile" <%if (success.product_category == 'mobile') { %>selected <% } %> >Mobile</option>
 								<option value="automobile" <%if (success.product_category == 'automobile') { %>selected <% } %> >Automobile</option>
 							</select> 
 							<span id="cates"></span>
-							<%= error.product_category ? error.product_category : '' %>
+							<span><%= error.product_category ? error.product_category : '' %></span>
 						</div>
 					</li>
 					

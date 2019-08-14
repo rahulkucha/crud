@@ -24,7 +24,44 @@
 <!-- Responsive -->
 <link href="/edit_product_files/responsive.css" rel="stylesheet">
 
+<script>
+function Confirm()
+		{
+			var x = confirm("Are you sure you want to delete?");
+			if (x)
+				return true;
+			else
+				return false;
+		}
 
+		function check() 
+		{
+			var chk = $('input[name="checkall"]').prop("checked");
+			if(chk)
+			{
+				$('.hello').prop("checked",true);
+			}
+			else
+			{
+				$('.hello').prop("checked",false);
+			}
+		}
+
+		function checkone() 
+		{
+			var chk = $('.hello').prop("checked");
+
+			$(".hello").each(function(){
+				var checked_value = $(this).prop("checked");
+
+				if(!checked_value){
+					$('input[name="checkall"]').prop("checked", false);
+				}else{
+					$('input[name="checkall"]').prop("checked", true);
+				}
+			});
+		}
+</script>
 
 </head>
 
@@ -88,7 +125,7 @@
 			<div class="form_container_block">
 					<table>
                             <tr>
-                                <th>Check</th>
+                                <th><input onclick="check()" id="mycheck" type="checkbox" name="checkall" value="">  Check</th>
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Image</th>
@@ -101,21 +138,21 @@
                             <% result.forEach(data => { %>
                                 <tr>
 									<% count=count+1 %>
-                                    <td><input type="checkbox" name="check[<%= data.id %>]" value="<%= data.id %>"></td>
+                                    <td><input class="hello" onclick="checkone()" type="checkbox" name="check[<%= data.id %>]" value="<%= data.id %>"></td>
                                     <td><b><%= count %></b></td>
                                     <td><b><%= data.name %></b></td>
                                     <td><img style="height: 100px;width: 100px;" src="/myfolder/<%= data.images %>"></td>
                                     <td><b><%= data.price %></b></td>
                                     <td><b><%= data.category %></b></td>
                                     <td><a href="/edit_product/<%= data.id %>">Edit</a></td>
-                                    <td><a href="/del/<%= data.id %>">Delete</a></td>
+                                    <td><a onclick="return Confirm()" href="/del/<%= data.id %>">Delete</a></td>
                                 </tr>
                             <% }) %>
                         </table>
 				<div class="next_btn_block">
 
 					<div class="next_btn" style="float: left">
-						<button type="submit">Delete All</button>
+						<button onclick="return Confirm()" type="submit">Delete All</button>
                     </div>
 					
                     <div class="next_btn" style="float: right">
